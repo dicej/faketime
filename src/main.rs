@@ -30,8 +30,8 @@ impl Clock for FakeClock {
     }
 
     fn delay_for(&self, duration: Duration) -> BoxFuture<'static, ()> {
-        FakeInstant::advance_time(duration.as_millis().try_into().unwrap());
-        future::ready(()).boxed()
+        future::lazy(move |_| FakeInstant::advance_time(duration.as_millis().try_into().unwrap()))
+            .boxed()
     }
 }
 
