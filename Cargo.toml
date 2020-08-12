@@ -1,0 +1,10 @@
+[package]
+name = "faketime"
+version = "0.1.0"
+authors = ["Joel Dice <joel.dice@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+fake_clock = "0.3"
+futures = "0.3"
+tokio = { version = "0.2", features = ["time", "rt-threaded", "macros"] }
